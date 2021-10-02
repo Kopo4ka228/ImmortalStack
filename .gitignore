@@ -1,0 +1,5 @@
+*.exe
+*.exe.log
+*.exe.log.dmp
+*.git-auto
+*.cpp.save
