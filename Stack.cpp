@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include <TXLib.h>
 #include <assert.h>
+#include <time.h>
+
+//-----------------------------------------------------------------------------
+int NUM_ERRORS = 0; //количество ошибок в программе
+//-----------------------------------------------------------------------------
 
 enum Error_Codes {
     stack_null = -1,
@@ -20,14 +25,14 @@ enum Error_Codes StackPush (Stack*, double x);
 enum Error_Codes Stack_Resize (Stack* stack);
 enum Error_Codes StackPop (Stack* stack);
 enum Error_Codes Stack_OK (Stack* stack);
-void fill_log (enum Error_Codes code, int nLine);
+void fill_log (enum Error_Codes code, int nLine, unsigned int* num_errors);
+void Number_of_Errors (void);
+void StackDump (Stack* stack);
 
 //-----------------------------------------------------------------------------
 
 int main()
 {
-    FILE* name = fopen ("log.txt", "w");
-    fclose (name);
     Stack st = {};
     StackCtor (&st);
     //проверить код ошибки
@@ -39,6 +44,9 @@ int main()
     {
         StackPop (&st);
     }
+    Number_of_Errors ();
+    StackDump (&st);
+    return 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -67,16 +75,13 @@ void fill_log (enum Error_Codes code, int nLine)  // нужно говорить о строке, в 
     {
         fputs ("You had a zero pointer to a stack.", log);
         fprintf (log, "A line number is %d\n", nLine);
+        NUM_ERRORS++;
     }
     if (code == size_bigger_cap)
     {
         fputs ("The number of values is bigger than the whole capacity.",log);
         fprintf (log, "A line number is %d\n", nLine);
-    }
-    if (code == stack_ok)
-    {
-        fputs ("Process terminated with status 0.", log);
-        fprintf (log, "A line number is %d\n", nLine);
+        NUM_ERRORS++;
     }
 
     fclose (log);
@@ -149,4 +154,34 @@ enum Error_Codes StackPop (Stack* stack)
 
 //-----------------------------------------------------------------------------
 
+void Number_of_Errors (void)
+{
+    FILE* log = fopen ("log.txt", "a");
+    time_t rawtime = 0;
+    time (&rawtime);
+    struct tm* timeinfo = localtime (&rawtime);
 
+    if (NUM_ERRORS == 0)
+    {
+        fprintf (log, "Compilation is OK\t%s", asctime (timeinfo));
+    }
+    else
+    {
+        fprintf (log, "%d errors\t%s", asctime (timeinfo));
+    }
+    fclose (log);
+}
+
+//-----------------------------------------------------------------------------
+
+void StackDump (Stack* stack)
+{
+    FILE* dump = fopen ("dump.txt", "a");
+    fprintf (dump, "number of elements of stack = %d\n", stack -> size);
+    fprintf (dump, "number of bytes reserved for stack = %d\n", stack -> capacity);
+
+    for (int i = 1; i < stack -> size + 1; i++)
+    {
+        fprintf (dump, "%d: address = %p value = %lf\n", i, stack -> data + i - 1, stack -> data[i-1]);
+    }
+}
