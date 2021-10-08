@@ -184,4 +184,9 @@ void StackDump (Stack* stack)
     {
         fprintf (dump, "%d: address = %p value = %lf\n", i, stack -> data + i - 1, stack -> data[i-1]);
     }
+
+    fprintf (dump, "ADDRESSES OF VARIABLES:\n");
+    fprintf (dump, "size: %p\n", &(stack->size));
+    fprintf (dump, "data: %p\n", stack->data);
+    fprintf (dump, "capacity: %p\n", &(stack->capacity));
 }
