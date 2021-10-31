@@ -41,3 +41,568 @@ number of bytes reserved for stack = 64
 39: address = 0112C6C8 value = 37.000000
 40: address = 0112C6D0 value = 38.000000
 41: address = 0112C6D8 value = 39.000000
+number of elements of stack = 41
+number of bytes reserved for stack = 64
+1: address = 0089C510 value = 0.000000
+2: address = 0089C518 value = 0.000000
+3: address = 0089C520 value = 1.000000
+4: address = 0089C528 value = 2.000000
+5: address = 0089C530 value = 3.000000
+6: address = 0089C538 value = 4.000000
+7: address = 0089C540 value = 5.000000
+8: address = 0089C548 value = 6.000000
+9: address = 0089C550 value = 7.000000
+10: address = 0089C558 value = 8.000000
+11: address = 0089C560 value = 9.000000
+12: address = 0089C568 value = 10.000000
+13: address = 0089C570 value = 11.000000
+14: address = 0089C578 value = 12.000000
+15: address = 0089C580 value = 13.000000
+16: address = 0089C588 value = 14.000000
+17: address = 0089C590 value = 15.000000
+18: address = 0089C598 value = 16.000000
+19: address = 0089C5A0 value = 17.000000
+20: address = 0089C5A8 value = 18.000000
+21: address = 0089C5B0 value = 19.000000
+22: address = 0089C5B8 value = 20.000000
+23: address = 0089C5C0 value = 21.000000
+24: address = 0089C5C8 value = 22.000000
+25: address = 0089C5D0 value = 23.000000
+26: address = 0089C5D8 value = 24.000000
+27: address = 0089C5E0 value = 25.000000
+28: address = 0089C5E8 value = 26.000000
+29: address = 0089C5F0 value = 27.000000
+30: address = 0089C5F8 value = 28.000000
+31: address = 0089C600 value = 29.000000
+32: address = 0089C608 value = 30.000000
+33: address = 0089C610 value = 31.000000
+34: address = 0089C618 value = 32.000000
+35: address = 0089C620 value = 33.000000
+36: address = 0089C628 value = 34.000000
+37: address = 0089C630 value = 35.000000
+38: address = 0089C638 value = 36.000000
+39: address = 0089C640 value = 37.000000
+40: address = 0089C648 value = 38.000000
+41: address = 0089C650 value = 39.000000
+ADDRESSES OF VARIABLES:
+size: 007AFEF0
+data: 0089C510
+capacity: 007AFEEC
+Fri Oct 08 18:21:23 2021
+number of elements of stack = 41
+number of bytes reserved for stack = 64
+1: address = 008EC670 value = 0.000000
+2: address = 008EC678 value = 0.000000
+3: address = 008EC680 value = 1.000000
+4: address = 008EC688 value = 2.000000
+5: address = 008EC690 value = 3.000000
+6: address = 008EC698 value = 4.000000
+7: address = 008EC6A0 value = 5.000000
+8: address = 008EC6A8 value = 6.000000
+9: address = 008EC6B0 value = 7.000000
+10: address = 008EC6B8 value = 8.000000
+11: address = 008EC6C0 value = 9.000000
+12: address = 008EC6C8 value = 10.000000
+13: address = 008EC6D0 value = 11.000000
+14: address = 008EC6D8 value = 12.000000
+15: address = 008EC6E0 value = 13.000000
+16: address = 008EC6E8 value = 14.000000
+17: address = 008EC6F0 value = 15.000000
+18: address = 008EC6F8 value = 16.000000
+19: address = 008EC700 value = 17.000000
+20: address = 008EC708 value = 18.000000
+21: address = 008EC710 value = 19.000000
+22: address = 008EC718 value = 20.000000
+23: address = 008EC720 value = 21.000000
+24: address = 008EC728 value = 22.000000
+25: address = 008EC730 value = 23.000000
+26: address = 008EC738 value = 24.000000
+27: address = 008EC740 value = 25.000000
+28: address = 008EC748 value = 26.000000
+29: address = 008EC750 value = 27.000000
+30: address = 008EC758 value = 28.000000
+31: address = 008EC760 value = 29.000000
+32: address = 008EC768 value = 30.000000
+33: address = 008EC770 value = 31.000000
+34: address = 008EC778 value = 32.000000
+35: address = 008EC780 value = 33.000000
+36: address = 008EC788 value = 34.000000
+37: address = 008EC790 value = 35.000000
+38: address = 008EC798 value = 36.000000
+39: address = 008EC7A0 value = 37.000000
+40: address = 008EC7A8 value = 38.000000
+41: address = 008EC7B0 value = 39.000000
+ADDRESSES OF VARIABLES:
+size: 007AFEF0
+data: 008EC670
+capacity: 007AFEEC
+Fri Oct 08 18:25:28 2021
+
+//-----------------------------------------------------------------------------number of elements of stack = 41
+number of bytes reserved for stack = 64
+1: address = 0124C840 value = 0.000000
+2: address = 0124C848 value = 0.000000
+3: address = 0124C850 value = 1.000000
+4: address = 0124C858 value = 2.000000
+5: address = 0124C860 value = 3.000000
+6: address = 0124C868 value = 4.000000
+7: address = 0124C870 value = 5.000000
+8: address = 0124C878 value = 6.000000
+9: address = 0124C880 value = 7.000000
+10: address = 0124C888 value = 8.000000
+11: address = 0124C890 value = 9.000000
+12: address = 0124C898 value = 10.000000
+13: address = 0124C8A0 value = 11.000000
+14: address = 0124C8A8 value = 12.000000
+15: address = 0124C8B0 value = 13.000000
+16: address = 0124C8B8 value = 14.000000
+17: address = 0124C8C0 value = 15.000000
+18: address = 0124C8C8 value = 16.000000
+19: address = 0124C8D0 value = 17.000000
+20: address = 0124C8D8 value = 18.000000
+21: address = 0124C8E0 value = 19.000000
+22: address = 0124C8E8 value = 20.000000
+23: address = 0124C8F0 value = 21.000000
+24: address = 0124C8F8 value = 22.000000
+25: address = 0124C900 value = 23.000000
+26: address = 0124C908 value = 24.000000
+27: address = 0124C910 value = 25.000000
+28: address = 0124C918 value = 26.000000
+29: address = 0124C920 value = 27.000000
+30: address = 0124C928 value = 28.000000
+31: address = 0124C930 value = 29.000000
+32: address = 0124C938 value = 30.000000
+33: address = 0124C940 value = 31.000000
+34: address = 0124C948 value = 32.000000
+35: address = 0124C950 value = 33.000000
+36: address = 0124C958 value = 34.000000
+37: address = 0124C960 value = 35.000000
+38: address = 0124C968 value = 36.000000
+39: address = 0124C970 value = 37.000000
+40: address = 0124C978 value = 38.000000
+41: address = 0124C980 value = 39.000000
+ADDRESSES OF VARIABLES:
+size: 007AFEF0
+data: 0124C840
+capacity: 007AFEEC
+Fri Oct 08 18:26:48 2021
+
+//-----------------------------------------------------------------------------number of elements of stack = 0
+number of bytes reserved for stack = 1
+ADDRESSES OF VARIABLES:
+capacity: 0060FEF4
+size: 0060FEF8
+data: 00B20D60
+Wed Oct 27 01:55:03 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 1
+number of bytes reserved for stack = 2
+1: address = 00770D60 value = 1162762561.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00770D60
+Wed Oct 27 01:58:03 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 2
+number of bytes reserved for stack = 4
+1: address = 00690D60 value = 0.000000
+2: address = 00690D68 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00690D60
+Wed Oct 27 02:01:03 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 3
+number of bytes reserved for stack = 4
+1: address = 009F0D60 value = 0.000000
+2: address = 009F0D68 value = 100.000000
+3: address = 009F0D70 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 009F0D60
+Wed Oct 27 02:02:14 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 100
+1: address = 00130D60 value = 1162762561.000000
+2: address = 00130D68 value = 100.000000
+3: address = 00130D70 value = 100.000000
+4: address = 00130D78 value = 100.000000
+5: address = 00130D80 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00130D60
+Wed Oct 27 02:04:50 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 00BB0D60 value = 1162762561.000000
+2: address = 00BB0D68 value = 100.000000
+3: address = 00BB0D70 value = 100.000000
+4: address = 00BB0D78 value = 100.000000
+5: address = 00BB0D80 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00BB0D60
+Wed Oct 27 02:30:37 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 00030D68 value = 100.000000
+2: address = 00030D70 value = 100.000000
+3: address = 00030D78 value = 100.000000
+4: address = 00030D80 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00030D60
+Wed Oct 27 02:39:50 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 00B10D68 value = 100.000000
+2: address = 00B10D70 value = 100.000000
+3: address = 00B10D78 value = 100.000000
+4: address = 00B10D80 value = 100.000000
+5: address = 00B10D88 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00B10D60
+Wed Oct 27 02:40:35 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 007A0D68 value = 100.000000
+2: address = 007A0D70 value = 100.000000
+3: address = 007A0D78 value = 100.000000
+4: address = 007A0D80 value = 100.000000
+5: address = 007A0D88 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 007A0D60
+canary value: ÒWed Oct 27 02:44:35 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 006F0D68 value = 100.000000
+2: address = 006F0D70 value = 100.000000
+3: address = 006F0D78 value = 100.000000
+4: address = 006F0D80 value = 100.000000
+5: address = 006F0D88 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 006F0D60
+canary value: ÒWed Oct 27 02:45:54 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 00780D68 value = 100.000000
+2: address = 00780D70 value = 100.000000
+3: address = 00780D78 value = 100.000000
+4: address = 00780D80 value = 100.000000
+5: address = 00780D88 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00780D60
+canary value: ÒWed Oct 27 02:47:08 2021          ¿–¿”À  ¿Õ¿–≈… ¿¿¿!!!!!!!!!
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 00B50D68 value = 100.000000
+2: address = 00B50D70 value = 100.000000
+3: address = 00B50D78 value = 100.000000
+4: address = 00B50D80 value = 100.000000
+5: address = 00B50D88 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00B50D60
+canary value: ÒFri Oct 29 19:31:36 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 10
+1: address = 00790D68 value = 100.000000
+2: address = 00790D70 value = 100.000000
+3: address = 00790D78 value = 100.000000
+4: address = 00790D80 value = 100.000000
+5: address = 00790D88 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00790D60
+canary value: ÒSat Oct 30 17:02:22 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00D80DC0 value = 100.000000
+2: address = 00D80DC8 value = 100.000000
+3: address = 00D80DD0 value = 100.000000
+4: address = 00D80DD8 value = 100.000000
+5: address = 00D80DE0 value = 100.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00D80DB8
+canary value: ÒSat Oct 30 17:18:14 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00790DC0 value = 5.000000
+2: address = 00790DC8 value = 6.000000
+3: address = 00790DD0 value = 7.000000
+4: address = 00790DD8 value = 12.000000
+5: address = 00790DE0 value = 13.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00790DB8
+canary value: ÒSat Oct 30 17:33:55 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00CC0DC0 value = 5.000000
+2: address = 00CC0DC8 value = 6.000000
+3: address = 00CC0DD0 value = 7.000000
+4: address = 00CC0DD8 value = 12.000000
+5: address = 00CC0DE0 value = 13.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00CC0DB8
+canary value: ÒSat Oct 30 17:34:39 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 006C0DC0 value = 5.000000
+2: address = 006C0DC8 value = 6.000000
+3: address = 006C0DD0 value = 7.000000
+4: address = 006C0DD8 value = 12.000000
+5: address = 006C0DE0 value = 13.000000
+6: address = 006C0DE8 value = 0.000000
+7: address = 006C0DF0 value = 538167023617.787410
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 006C0DB8
+canary value: ÒSat Oct 30 17:36:32 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00AD0DC0 value = 5.000000
+2: address = 00AD0DC8 value = 6.000000
+3: address = 00AD0DD0 value = 7.000000
+4: address = 00AD0DD8 value = 12.000000
+5: address = 00AD0DE0 value = 13.000000
+6: address = 00AD0DE8 value = 0.000000
+7: address = 00AD0DF0 value = 538167023617.787410
+8: address = 00AD0DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00AD0DB8
+canary value: ÒSat Oct 30 17:36:56 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00710DC0 value = 5.000000
+2: address = 00710DC8 value = 6.000000
+3: address = 00710DD0 value = 7.000000
+4: address = 00710DD8 value = 12.000000
+5: address = 00710DE0 value = 13.000000
+6: address = 00710DE8 value = 0.000000
+7: address = 00710DF0 value = 538167023617.787410
+8: address = 00710DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00710DB8
+canary value: Òcanary value in stack: )Sat Oct 30 17:44:21 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00B90DC0 value = 5.000000
+2: address = 00B90DC8 value = 6.000000
+3: address = 00B90DD0 value = 7.000000
+4: address = 00B90DD8 value = 12.000000
+5: address = 00B90DE0 value = 13.000000
+6: address = 00B90DE8 value = 0.000000
+7: address = 00B90DF0 value = 538167023617.787410
+8: address = 00B90DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00B90DB8
+canary value: Ò
+canary value in stack: )
+Sat Oct 30 17:45:30 2021
+
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+1: address = 00B10DC0 value = 5.000000
+2: address = 00B10DC8 value = 6.000000
+3: address = 00B10DD0 value = 7.000000
+4: address = 00B10DD8 value = 12.000000
+5: address = 00B10DE0 value = 13.000000
+6: address = 00B10DE8 value = 0.000000
+7: address = 00B10DF0 value = 538167023617.787410
+8: address = 00B10DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00B10DB8
+canary value: 0
+canary value in stack: 666
+Sun Oct 31 02:37:10 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+0: address = 00020DB8 value = 666.000000
+1: address = 00020DC0 value = 5.000000
+2: address = 00020DC8 value = 6.000000
+3: address = 00020DD0 value = 7.000000
+4: address = 00020DD8 value = 12.000000
+5: address = 00020DE0 value = 13.000000
+6: address = 00020DE8 value = 0.000000
+7: address = 00020DF0 value = 538167023617.787410
+8: address = 00020DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00020DB8
+canary value in data: 0
+canary value in structure: 666
+Sun Oct 31 02:55:04 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+0: address = 00F1B620 value = 666.000000
+1: address = 00F1B628 value = 5.000000
+2: address = 00F1B630 value = 6.000000
+3: address = 00F1B638 value = 7.000000
+4: address = 00F1B640 value = 12.000000
+5: address = 00F1B648 value = 13.000000
+6: address = 00F1B650 value = 0.000000
+7: address = 00F1B658 value = 0.000000
+8: address = 00F1B660 value = 0.000000
+ADDRESSES OF VARIABLES:
+capacity: 007AFEF4
+size: 007AFEF8
+data: 00F1B620
+canary value in data: 0
+canary value in structure: 666
+Sun Oct 31 02:57:22 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+0: address = 0104B620 value = 666.000000
+1: address = 0104B628 value = 5.000000
+2: address = 0104B630 value = 6.000000
+3: address = 0104B638 value = 7.000000
+4: address = 0104B640 value = 12.000000
+5: address = 0104B648 value = 13.000000
+6: address = 0104B650 value = 0.000000
+7: address = 0104B658 value = 0.000000
+8: address = 0104B660 value = 0.000000
+ADDRESSES OF VARIABLES:
+capacity: 007AFEF4
+size: 007AFEF8
+data: 0104B620
+canary value in data: 0
+canary value in structure: 666
+Sun Oct 31 02:59:42 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+0: address = 00A80DB8 value = 666.000000
+1: address = 00A80DC0 value = 5.000000
+2: address = 00A80DC8 value = 6.000000
+3: address = 00A80DD0 value = 7.000000
+4: address = 00A80DD8 value = 12.000000
+5: address = 00A80DE0 value = 13.000000
+6: address = 00A80DE8 value = 0.000000
+7: address = 00A80DF0 value = 538167023617.787410
+8: address = 00A80DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF4
+size: 0064FEF8
+data: 00A80DB8
+canary value in data: 666.000000
+canary value in structure: 666
+Sun Oct 31 03:01:04 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 5
+number of bytes reserved for stack = 8
+0: address = 00020DB8 value = 666.000000
+1: address = 00020DC0 value = 5.000000
+2: address = 00020DC8 value = 6.000000
+3: address = 00020DD0 value = 7.000000
+4: address = 00020DD8 value = 12.000000
+5: address = 00020DE0 value = 13.000000
+6: address = 00020DE8 value = 0.000000
+7: address = 00020DF0 value = 538167023617.787410
+8: address = 00020DF8 value = 17537968625222902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF0
+size: 0064FEF4
+data: 00020DB8
+canary value in data: 666.000000
+first canary check in structure: 666
+second canary check in structure: 666
+Sun Oct 31 03:03:54 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = -1
+number of bytes reserved for stack = 1
+0: address = 007A0DB8 value = 666666.000000
+1: address = 007A0DC0 value = 5.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF0
+size: 0064FEF4
+data: 007A0DB8
+canary value in data: 666666.000000
+first canary check in structure: 666666
+second canary check in structure: 666666
+Sun Oct 31 03:16:23 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 1
+number of bytes reserved for stack = 2
+0: address = 00AD0DB8 value = 666.000000
+1: address = 00AD0DC0 value = 5.000000
+2: address = 00AD0DC8 value = 6.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF0
+size: 0064FEF4
+data: 00AD0DB8
+canary value in data: 666.000000
+first canary check in structure: 666
+second canary check in structure: 666
+Sun Oct 31 03:18:44 2021
+//-----------------------------------------------------------------------------

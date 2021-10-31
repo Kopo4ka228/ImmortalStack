@@ -1,32 +1,42 @@
 #include <stdlib.h>
-#include <TXLib.h>
 #include <assert.h>
 #include <time.h>
+#include <stdio.h>
+#include <string.h>
 
 //-----------------------------------------------------------------------------
 int NUM_ERRORS = 0; //количество ошибок в программе
+typedef long int canary_t;
+canary_t  CANARY_VALUE = 666666;  //канарейка
 //-----------------------------------------------------------------------------
 
 enum Error_Codes {
     stack_null = -1,
     size_bigger_cap = -2,
-    stack_ok = 0
+    wrong_resize = -3,
+    stack_ok = 0,
+    size_less = 1,
+    size_more = 2
 };
 struct Stack
 {
-    unsigned int capacity;
-    unsigned int size;
+    canary_t canary_1 = CANARY_VALUE;
+    unsigned long int capacity;
+    unsigned long int size;
     double* data;
+    canary_t canary_2 = CANARY_VALUE;
 };
 
+//-----------------------------------------------------------------------------
+
+enum Error_Codes StackOK(Stack* stack);
 enum Error_Codes StackCtor (Stack* stack);
 void StackDtor (Stack* stack);
-enum Error_Codes StackPush (Stack*, double x);
-enum Error_Codes Stack_Resize (Stack* stack);
-enum Error_Codes StackPop (Stack* stack);
+double StackPush (Stack*, double x);
+enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st);
+double StackPop (Stack* stack);
 enum Error_Codes Stack_OK (Stack* stack);
-void fill_log (enum Error_Codes code, int nLine, unsigned int* num_errors);
-enum Error_Codes StackDump (Stack* stack);
+void fill_log (enum Error_Codes code, int nLine);
 void Number_of_Errors (void);
 void StackDump (Stack* stack);
 
@@ -37,19 +47,22 @@ int main()
     Stack st = {};
     StackCtor (&st);
     //проверить код ошибки
-    for (int i = 0; i < 100; i++)
-    {
-        StackPush (&st, i);
-    }
-    for (int i = 0; i < 60; i++)
-    {
-        StackPop (&st);
-    }
+
+    StackPush (&st, 5);
+    StackPush (&st, 6);
+    StackPush (&st, 7);
+    StackPush (&st, 12);
+    StackPush (&st, 13);
+    StackPop (&a
+
     Number_of_Errors ();
+    StackDump (&st);
+    StackDtor (&st);
     return 0;
 }
 
 //-----------------------------------------------------------------------------
+
 enum Error_Codes StackOK(Stack* stack)
 {
     if (stack == nullptr)
@@ -67,6 +80,7 @@ enum Error_Codes StackOK(Stack* stack)
 }
 
 //-----------------------------------------------------------------------------
+
 void fill_log (enum Error_Codes code, int nLine)  // нужно говорить о строке, в которой произошел вызов
 {
     FILE* log = fopen ("log.txt", "a");
@@ -77,6 +91,7 @@ void fill_log (enum Error_Codes code, int nLine)  // нужно говорить о строке, в 
         fprintf (log, "A line number is %d\n", nLine);
         NUM_ERRORS++;
     }
+
     if (code == size_bigger_cap)
     {
         fputs ("The number of values is bigger than the whole capacity.",log);
@@ -86,16 +101,21 @@ void fill_log (enum Error_Codes code, int nLine)  // нужно говорить о строке, в 
 
     fclose (log);
 }
+
 //-----------------------------------------------------------------------------
 
 enum Error_Codes StackCtor (Stack* stack)
 {
     assert (stack != nullptr);
+
     stack -> capacity = 1;
-    stack -> data = (double*) calloc (stack -> capacity, sizeof (double));
-    stack -> size = 1;
+    stack -> data = (double*) calloc (stack->capacity + 1, sizeof (double));
+    stack -> size = 0;
+    stack -> data[0] = CANARY_VALUE;
+
     return stack_ok;
 }
+
 void StackDtor (Stack* stack)
 {
     assert (stack != nullptr);
@@ -108,15 +128,48 @@ void StackDtor (Stack* stack)
 
 //-----------------------------------------------------------------------------
 
-enum Error_Codes StackPush (Stack* stack, double x)
+double StackPush (Stack* stack, double x)
 {
     assert (stack);
-    stack -> data[stack -> size] = x;
+
     stack -> size++;
-    if (stack -> size >= stack -> capacity)
+
+    if ((stack -> size) > (stack -> capacity))
     {
-        Stack_Resize (stack);
+        Stack_Resize (stack, size_more);
     }
+
+    stack -> data[stack -> size] = x;
+
+    Error_Codes error_code =  StackOK (stack);
+    fill_log (error_code, __LINE__);
+    return x;
+}
+
+//-----------------------------------------------------------------------------
+
+enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
+{
+    assert (stack);
+
+    if (resize_st == size_more)
+    {
+        (stack -> capacity) = (stack -> capacity) * 2;
+        (stack -> data) = (double*) (realloc (stack -> data, (stack -> capacity + 1) * sizeof (double)));
+    }
+
+    else if (resize_st == size_less)
+    {
+        (stack -> capacity) = (stack -> capacity) / 2;
+        (stack -> data) = (double*) (realloc (stack -> data, (stack -> capacity + 1) * sizeof (double)));
+    }
+
+    else
+    {
+        fill_log (wrong_resize, __LINE__);
+        return wrong_resize;
+    }
+
     Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
     return error_code;
@@ -124,32 +177,24 @@ enum Error_Codes StackPush (Stack* stack, double x)
 
 //-----------------------------------------------------------------------------
 
-enum Error_Codes Stack_Resize (Stack* stack)
+double StackPop (Stack* stack)
 {
-    stack -> capacity = stack -> capacity * 2;
-    realloc (stack -> data, stack -> capacity * sizeof (double));
-    Error_Codes error_code =  StackOK (stack);
-    fill_log (error_code, __LINE__);
-    return error_code;
-}
+    assert (stack);
 
-//-----------------------------------------------------------------------------
-
-
-
-//-----------------------------------------------------------------------------
-
-enum Error_Codes StackPop (Stack* stack)
-{
+    double pop = (stack->data)[stack->size];
     stack -> size--;
-    if (stack -> size <= stack -> capacity * 0.35)     //0.35 - произвольная константа (мб от 0.35 до 0.4)
-    {
-        stack -> capacity = (stack -> capacity) / 2;
-        realloc (stack -> data, stack -> capacity * sizeof (int));
-    }
     Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
-    return error_code;
+
+    if (( stack -> size ) <= ( ( stack -> capacity ) * 0.35 ))     //0.35 - произвольная константа (мб от 0.35 до 0.4)
+    {
+        Stack_Resize (stack, size_less);
+    }
+
+    error_code =  StackOK (stack);
+    fill_log (error_code, __LINE__);
+
+    return pop;
 }
 
 //-----------------------------------------------------------------------------
@@ -167,7 +212,7 @@ void Number_of_Errors (void)
     }
     else
     {
-        fprintf (log, "%d errors\t%s", asctime (timeinfo));
+        fprintf (log, "%d errors\t%s", NUM_ERRORS, asctime (timeinfo));
     }
     fclose (log);
 }
@@ -176,12 +221,32 @@ void Number_of_Errors (void)
 
 void StackDump (Stack* stack)
 {
+    assert (stack);
     FILE* dump = fopen ("dump.txt", "a");
-    fprintf (log, "number of elements of stack = %d\n", stack -> size);
-    fprintf (log, "number of bytes reserved for stack = %d\n, stack -> capacity);
-    
-    for (int i = 1; i < capacity + 1; i++)
+
+    time_t rawtime = 0;
+    time (&rawtime);
+    struct tm* timeinfo = localtime (&rawtime);
+
+    fprintf (dump, "number of elements of stack = %li\n", stack -> size);
+    fprintf (dump, "number of bytes reserved for stack = %li\n", stack -> capacity);
+
+    for (unsigned int i = 0; i < (stack -> capacity) + 1; i++)
     {
-        printf ("%d: address %p value %lf\n", i, stack -> data + i - 1,  
+        fprintf (dump, "%d: address = %p value = %lf\n", i, stack -> data + i, stack -> data[i]);
     }
+
+    fprintf (dump, "ADDRESSES OF VARIABLES:\n");
+    fprintf (dump, "capacity: %p\n", &(stack->capacity));
+    fprintf (dump, "size: %p\n", &(stack->size));
+    fprintf (dump, "data: %p\n", stack->data);
+    fprintf (dump, "canary value in data: %lf\n", (stack->data[0]));
+    fprintf (dump, "first canary check in structure: %li\n", (stack->canary_1));
+    fprintf (dump, "second canary check in structure: %li\n", (stack->canary_2));
+    fprintf (dump, "%s", asctime (timeinfo));
+    fprintf (dump,"//-----------------------------------------------------------------------------\n");
 }
+
+//-----------------------------------------------------------------------------
+
+
