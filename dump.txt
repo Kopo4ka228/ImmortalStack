@@ -634,3 +634,17 @@ first canary check in structure: 666
 second canary check in structure: 666
 Tue Nov 09 00:19:40 2021
 //-----------------------------------------------------------------------------
+size = 1
+capacity = 2
+0: address = 00B90DC0 value = 666.000000
+1: address = 00B90DC8 value = 5.000000
+2: address = 00B90DD0 value = 6.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF0
+size: 0064FEF4
+data: 00B90DC0
+canary value in data: 666.000000
+first canary check in structure: 666
+second canary check in structure: 666
+Tue Nov 09 01:59:47 2021
+//-----------------------------------------------------------------------------
