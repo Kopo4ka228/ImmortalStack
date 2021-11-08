@@ -606,3 +606,31 @@ first canary check in structure: 666
 second canary check in structure: 666
 Sun Oct 31 03:18:44 2021
 //-----------------------------------------------------------------------------
+number of elements of stack = 1
+number of bytes reserved for stack = 2
+0: address = 00BC0DB8 value = 666.000000
+1: address = 00BC0DC0 value = 5.000000
+2: address = 00BC0DC8 value = 6.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF0
+size: 0064FEF4
+data: 00BC0DB8
+canary value in data: 666.000000
+first canary check in structure: 666
+second canary check in structure: 666
+Fri Nov 05 18:44:22 2021
+//-----------------------------------------------------------------------------
+number of elements of stack = 1
+number of bytes reserved for stack = 2
+0: address = 00030DC0 value = 666.000000
+1: address = 00030DC8 value = 5.000000
+2: address = 00030DD0 value = 6.000000
+ADDRESSES OF VARIABLES:
+capacity: 0064FEF0
+size: 0064FEF4
+data: 00030DC0
+canary value in data: 666.000000
+first canary check in structure: 666
+second canary check in structure: 666
+Tue Nov 09 00:19:40 2021
+//-----------------------------------------------------------------------------
