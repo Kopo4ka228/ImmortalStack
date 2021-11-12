@@ -25,7 +25,7 @@ enum Error_Codes {
 struct Stack
 {
     canary_t canary_1 = CANARY_VALUE;
-    uint32_t hash_data = 0;
+    uint32_t data_hash = 0;
     unsigned long int capacity;
     unsigned long int size;
     double* data;
@@ -48,28 +48,6 @@ void HashUpdate (Stack* stack);
 
 //-----------------------------------------------------------------------------
 
-int main()
-{
-    Stack st = {};
-    StackCtor (&st);
-    //проверить код ошибки
-
-    StackPush (&st, 5);
-    StackPush (&st, 6);
-    StackPush (&st, 7);
-    StackPush (&st, 12);
-    StackPush (&st, 13);
-    StackPop  (&st);
-    StackPop  (&st);
-    StackPop  (&st);
-    StackPop  (&st);
-
-    Number_of_Errors ();
-    StackDump (&st);
-    StackDtor (&st);
-    return 0;
-}
-
 //-----------------------------------------------------------------------------
 
 enum Error_Codes StackOK(Stack* stack, uint32_t old_hash)
@@ -85,7 +63,7 @@ enum Error_Codes StackOK(Stack* stack, uint32_t old_hash)
     }
 
     HashUpdate (stack);
-    if ( fabs( (stack -> hash_data) - old_hash ) > 1 )
+    if ( fabs( (stack -> data_hash) - old_hash ) > 1 )
     {
         return diff_hashes;
     }
@@ -95,18 +73,18 @@ enum Error_Codes StackOK(Stack* stack, uint32_t old_hash)
 
 //-----------------------------------------------------------------------------
 
-void fill_log (enum Error_Codes code, int nLine)  // нужно говорить о строке, в которой произошел вызов
+void fill_log (enum Error_Codes code_num, int nLine)  // нужно говорить о строке, в которой произошел вызов
 {
     FILE* log = fopen ("log.txt", "a");
 
-    if (code == stack_null)
+    if (code_num == stack_null)
     {
         fputs ("You had a zero pointer to a stack.", log);
         fprintf (log, "A line number is %d\n", nLine);
         NUM_ERRORS++;
     }
 
-    if (code == size_bigger_cap)
+    if (code_num == size_bigger_cap)
     {
         fputs ("The number of values is bigger than the whole capacity.",log);
         fprintf (log, "A line number is %d\n", nLine);
@@ -145,8 +123,7 @@ void StackDtor (Stack* stack)
 double StackPush (Stack* stack, double x)
 {
     assert (stack);
-    double old_hash = (stack -> data_hash);
-    StackOK (stack, old_hash);
+    StackOK (stack);
 
     stack -> size++;
     if ((stack -> size) > (stack -> capacity))
@@ -156,8 +133,7 @@ double StackPush (Stack* stack, double x)
     stack -> data[stack -> size] = x;
     HashUpdate (stack);
 
-    old_hash = (stack -> data_hash);
-    Error_Codes error_code =  StackOK (stack, old_hash);
+    Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
     return x;
 }
@@ -167,8 +143,7 @@ double StackPush (Stack* stack, double x)
 enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
 {
     assert (stack);
-    double old_hash = (stack -> data_hash);
-    StackOK (stack, old_hash);
+    StackOK (stack);
 
     if (resize_st == size_more)
     {
@@ -189,8 +164,7 @@ enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
     }
     HashUpdate (stack);
 
-    old_hash = (stack -> data_hash);
-    Error_Codes error_code =  StackOK (stack, old_hash);
+    Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
     return error_code;
 }
@@ -200,15 +174,13 @@ enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
 double StackPop (Stack* stack)
 {
     assert (stack);
-    double old_hash = (stack -> data_hash);
-    StackOK (stack, old_hash);
+    StackOK (stack);
 
     double pop = (stack->data)[stack->size];
     stack -> size--;
     HashUpdate (stack);
 
-    old_hash = (stack -> data_hash);
-    Error_Codes error_code =  StackOK (stack, old_hash);
+    Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
 
     if (( stack -> size ) <= ( ( stack -> capacity ) * 0.35 ))     //0.35 - произвольная константа (мб от 0.35 до 0.4)
@@ -217,8 +189,7 @@ double StackPop (Stack* stack)
         HashUpdate (stack);
     }
 
-    old_hash = (stack -> data_hash);
-    error_code =  StackOK (stack, old_hash);
+    error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
 
     return pop;
@@ -278,6 +249,6 @@ void StackDump (Stack* stack)
 
 void HashUpdate (Stack* stack)
 {
-    (stack -> hash_data) = MurmurHash2 (stack -> data, stack -> capacity,  SEED_VALUE);
+    (stack -> data_hash) = MurmurHash2 (stack -> data, stack -> capacity,  SEED_VALUE);
 }
 

@@ -7,7 +7,7 @@
 #include "hash.cpp"
 
 //-----------------------------------------------------------------------------
-int NUM_ERRORS = 0; //количество ошибок в программе
+int STACK_NUM_ERRORS = 0; //количество ошибок в программе
 typedef long int canary_t;
 canary_t  CANARY_VALUE = 666;  //канарейка
 uint32_t SEED_VALUE = 100; // значение ключа для хэш-функции
@@ -48,31 +48,9 @@ void HashUpdate (Stack* stack);
 
 //-----------------------------------------------------------------------------
 
-int main()
-{
-    Stack st = {};
-    StackCtor (&st);
-    //проверить код ошибки
-
-    StackPush (&st, 5);
-    StackPush (&st, 6);
-    StackPush (&st, 7);
-    StackPush (&st, 12);
-    StackPush (&st, 13);
-    StackPop  (&st);
-    StackPop  (&st);
-    StackPop  (&st);
-    StackPop  (&st);
-
-    Number_of_Errors ();
-    StackDump (&st);
-    StackDtor (&st);
-    return 0;
-}
-
 //-----------------------------------------------------------------------------
 
-enum Error_Codes StackOK(Stack* stack, uint32_t old_hash)
+enum Error_Codes StackOK(Stack* stack)
 {
     if (stack == nullptr)
     {
@@ -84,6 +62,7 @@ enum Error_Codes StackOK(Stack* stack, uint32_t old_hash)
         return size_bigger_cap;
     }
 
+    double old_hash = stack -> data_hash;
     HashUpdate (stack);
     if ( fabs( (stack -> data_hash) - old_hash ) > 1 )
     {
@@ -95,22 +74,22 @@ enum Error_Codes StackOK(Stack* stack, uint32_t old_hash)
 
 //-----------------------------------------------------------------------------
 
-void fill_log (enum Error_Codes code, int nLine)  // нужно говорить о строке, в которой произошел вызов
+void fill_log (enum Error_Codes code_num, int nLine)  // нужно говорить о строке, в которой произошел вызов
 {
     FILE* log = fopen ("log.txt", "a");
 
-    if (code == stack_null)
+    if (code_num == stack_null)
     {
-        fputs ("You had a zero pointer to a stack.", log);
+        fputs ("You have a zero pointer to a stack.", log);
         fprintf (log, "A line number is %d\n", nLine);
-        NUM_ERRORS++;
+        STACK_NUM_ERRORS++;
     }
 
-    if (code == size_bigger_cap)
+    if (code_num == size_bigger_cap)
     {
         fputs ("The number of values is bigger than the whole capacity.",log);
         fprintf (log, "A line number is %d\n", nLine);
-        NUM_ERRORS++;
+        STACK_NUM_ERRORS++;
     }
 
     fclose (log);
@@ -145,8 +124,7 @@ void StackDtor (Stack* stack)
 double StackPush (Stack* stack, double x)
 {
     assert (stack);
-    double old_hash = (stack -> data_hash);
-    StackOK (stack, old_hash);
+    StackOK (stack);
 
     stack -> size++;
     if ((stack -> size) > (stack -> capacity))
@@ -156,8 +134,7 @@ double StackPush (Stack* stack, double x)
     stack -> data[stack -> size] = x;
     HashUpdate (stack);
 
-    old_hash = (stack -> data_hash);
-    Error_Codes error_code =  StackOK (stack, old_hash);
+    Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
     return x;
 }
@@ -167,8 +144,7 @@ double StackPush (Stack* stack, double x)
 enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
 {
     assert (stack);
-    double old_hash = (stack -> data_hash);
-    StackOK (stack, old_hash);
+    StackOK (stack);
 
     if (resize_st == size_more)
     {
@@ -189,8 +165,7 @@ enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
     }
     HashUpdate (stack);
 
-    old_hash = (stack -> data_hash);
-    Error_Codes error_code =  StackOK (stack, old_hash);
+    Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
     return error_code;
 }
@@ -200,15 +175,13 @@ enum Error_Codes Stack_Resize (Stack* stack, enum Error_Codes resize_st)
 double StackPop (Stack* stack)
 {
     assert (stack);
-    double old_hash = (stack -> data_hash);
-    StackOK (stack, old_hash);
+    StackOK (stack);
 
     double pop = (stack->data)[stack->size];
     stack -> size--;
     HashUpdate (stack);
 
-    old_hash = (stack -> data_hash);
-    Error_Codes error_code =  StackOK (stack, old_hash);
+    Error_Codes error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
 
     if (( stack -> size ) <= ( ( stack -> capacity ) * 0.35 ))     //0.35 - произвольная константа (мб от 0.35 до 0.4)
@@ -217,8 +190,7 @@ double StackPop (Stack* stack)
         HashUpdate (stack);
     }
 
-    old_hash = (stack -> data_hash);
-    error_code =  StackOK (stack, old_hash);
+    error_code =  StackOK (stack);
     fill_log (error_code, __LINE__);
 
     return pop;
@@ -233,13 +205,13 @@ void Number_of_Errors (void)
     time (&rawtime);
     struct tm* timeinfo = localtime (&rawtime);
 
-    if (NUM_ERRORS == 0)
+    if (STACK_NUM_ERRORS == 0)
     {
         fprintf (log, "Compilation is OK\t%s", asctime (timeinfo));
     }
     else
     {
-        fprintf (log, "%d errors\t%s", NUM_ERRORS, asctime (timeinfo));
+        fprintf (log, "%d errors\t%s", STACK_NUM_ERRORS, asctime (timeinfo));
     }
     fclose (log);
 }
